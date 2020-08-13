@@ -1,0 +1,224 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #vendorForm="ngForm">
+        <!-- <div formGroupName="general"> -->
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" [(ngModel)]="vendor.name" 
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required #name="ngModel">
+        </div>
+        <div [hidden]="!name.pristine" class="alert alert-danger" [class.is.invalid]="name.invalid && name.untouched"   [class.d-none]="name.valid || name.touched"><small>Name is required</small></div>
+
+        <div class="form-group">
+          <label for="moto">Moto</label>
+          <input type="text" [(ngModel)]="vendor.moto" 
+            class="form-control"
+            id="moto"
+            name="moto"
+            placeholder="Enter your moto"
+            required #moto="ngModel">
+        </div>
+        <div [hidden]="!moto.pristine" class="alert alert-danger"><small>Moto is required</small></div>
+
+        <div class="form-group">
+          <label for="imageLogoName">Image Logo Name</label>
+          <input type="text" [(ngModel)]="vendor.imageLogoName" 
+            class="form-control"
+            id="imageLogoName"
+            name="imageLogoName"
+            placeholder="Enter your imageLogoName"
+            required #imageLogoName="ngModel">
+        </div>
+        <div [hidden]="!imageLogoName.pristine" class="alert alert-danger"><small>Image Logo Name is required</small></div>
+
+        <div class="form-group">
+          <label for = "role"> Role </label>
+        <br>
+          <select class ='custome-select' name ='role' [(ngModel)]="vendor.role" >
+            
+           <option selected> select the role here</option>
+           <option > Produce Owner </option>
+           <option > Data Entry </option>
+           <option > Data Analyst </option>
+           <!-- <option *ngFor = 'let role of roles '> {{roles}} </option> -->
+         </select>
+        </div>
+      
+        <!-- <div [hidden]="!address.pristine" class="alert alert-danger">Address is required</div> --> 
+
+              
+      <!-- </div> -->
+
+      <!-- <div formGroupName="address"> -->
+      <hr>
+        <h3>Please insert your address</h3>
+      <hr> 
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" [(ngModel)]="vendor.city" 
+            class="form-control"
+            id="city"
+            name="city"
+            placeholder="Enter your city"
+            required #city="ngModel">
+        </div>
+        <div [hidden]="!city.pristine" class="alert alert-danger"><small>City is required</small></div>
+
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" [(ngModel)]="vendor.state" 
+            class="form-control"
+            id="state"
+            name="state"
+            placeholder="Enter your state"
+            required #state="ngModel">
+        </div>
+        <div [hidden]="!state.pristine" class="alert alert-danger"><small>State is required</small></div>
+
+        <div class="form-group">
+          <label for="addressLineOne">Address Line One</label>
+          <input type="text" [(ngModel)]="vendor.addressLineOne" 
+            class="form-control"
+            id="addressLineOne"
+            name="addressLineOne"
+            placeholder="Enter your addressLineOne"
+            required #addressLineOne="ngModel">
+        </div>
+        <div [hidden]="!addressLineOne.pristine" class="alert alert-danger"><small>Address Line One is required</small></div>
+
+        <div class="form-group">
+          <label for="addressLineTwo">Address Line Two</label>
+          <input type="text" [(ngModel)]="vendor.addressLineTwo" 
+            class="form-control"
+            id="addressLineTwo"
+            name="addressLineTwo"
+            placeholder="Enter your addressLineTwo"
+            required #addressLineTwo="ngModel">
+        </div>
+        <!-- <div [hidden]="!addressLineTwo.pristine" class="alert alert-danger"><small>Address Line Two is required</small></div> -->
+
+        <!-- <div class="form-group">
+          <label for="user_id">User ID</label>
+          <input type="user_id" [(ngModel)]="address.user_id" 
+            class="form-control"
+            id="user_id"
+            name="user_id"
+            placeholder="Enter your email user_id"
+            required #email="ngModel">
+          </div>
+          <div [hidden]="!user_id.pristine" class="alert alert-danger">User ID is required</div> -->
+       <!-- </div> -->
+
+      <!-- <div formGroupName="userAccount"> -->
+      <hr>
+      <h3>Please insert your User Account</h3>
+      <hr> 
+
+        <div class="form-group">
+          <label for="userName">User Name</label>
+          <input type="text" [(ngModel)]="vendor.userName" 
+            class="form-control"
+            id="userName"
+            name="userName"
+            placeholder="Enter your userName"
+            required #userName="ngModel">
+        </div>
+        <div [hidden]="!userName.pristine" class="alert alert-danger"><small>Username is required</small></div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" [(ngModel)]="vendor.email" 
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required #email="ngModel">
+          </div>
+          <div [hidden]="!email.pristine" class="alert alert-danger"><small>Email is required</small></div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" [(ngModel)]="vendor.password" 
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          required #password="ngModel">
+      </div>
+      <div [hidden]="!password.pristine" class="alert alert-danger"><small>Password is required</small></div>
+
+      <!-- <button  (click)="enabled = '1'" [disabled]="enabled !== '1'" class="primair">
+        Enabled </button> -->
+      <!-- </div> -->
+    <hr>
+    <h3>Please insert your paymentInformation</h3>
+    <hr> 
+
+      <!-- <div formGroupName="paymentInformation"> -->
+
+      <div class="form-group">
+        <label for="nameOnCard">Name On Card</label>
+        <input type="text" [(ngModel)]="vendor.nameOnCard" 
+          class="form-control"
+          id="nameOnCard"
+          name="nameOnCard"
+          placeholder="Enter your addressLineTwo"
+          required #nameOnCard="ngModel">
+      </div>
+      <div [hidden]="!nameOnCard.pristine" class="alert alert-danger"><small>Name on Card is required</small></div>
+
+      <div class="form-group">
+        <label for="secCode">SecCode</label>
+        <input type="user_id" [(ngModel)]="vendor.secCode" 
+          class="form-control"
+          id="secCode"
+          name="secCode"
+          placeholder="Enter your secCode "
+          required #secCode="ngModel">
+        <div [hidden]="!secCode.pristine" class="alert alert-danger"><small>secCode is required</small></div>
+      </div>
+
+      <div class="form-group">
+        <label for="expDate">expDate</label>
+        <input type="text" [(ngModel)]="vendor.expDate" 
+          class="form-control"
+          id="expDate"
+          name="expDate"
+          placeholder="Enter your expDate"
+          required #expDate="ngModel">
+      </div>
+      <div [hidden]="!expDate.pristine" class="alert alert-danger"><small>expDate is required</small></div>
+
+      <div class="form-group">
+        <label for="cardNumber">cardNumber</label>
+        <input type="cardNumber" [(ngModel)]="vendor.cardNumber" 
+          class="form-control"
+          id="cardNumber"
+          name="cardNumber"
+          placeholder="Enter your cardNumber "
+          required #cardNumber="ngModel">
+        </div>
+        <div [hidden]="!cardNumber.pristine" class="alert alert-danger"><small>cardNumber is required</small></div>
+      
+        <div class="form-group">
+          <label for="cardType">cardType</label>
+          <input type="cardType" [(ngModel)]="vendor.cardType" 
+            class="form-control"
+            id="cardType"
+            name="cardType"
+            placeholder="Enter your cardType "
+            required #cardType="ngModel">
+          </div>
+        <div [hidden]="!cardType.pristine" class="alert alert-danger"><small>cardType is required</small></div>
+        <!-- </div> -->
+    
+
+        <button type="submit" [disabled]="!vendorForm.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
