@@ -1,40 +1,16 @@
-
-// 1
-//import { Employee } from './model/employee';
+import { Address } from "./model/address";
+import { PaymentInformation } from "./model/paymentInformation";
+import { UserAccount } from "./model/userAccount";
 
 export class Vendor {
-    id: String;
-    
-    //address : Address;
-    city: String ;
-    state: String ;
-    addressLineOne: String ;
-    addressLineTwo: String ;
-//    user_id: Number;
+  id: String;
+  name: String;
+  moto: String;
+  imageLogoName: String;
 
-//paymentInformation
-nameOnCard: String ;
-secCode: String ;
-expDate: String ;
-cardType: String ;
-cardNumber: String ;
+  address: Address;
 
-// userAccount
+  paymentInformation: PaymentInformation[];
 
-    email: String ;
-    password: String ;
-    enabled: boolean ;
-    userName: String ;
-
-
-
-    name: String;
-    moto: String ;
-    imageLogoName: String ;
-    role : String;
-    //email: String;
-    //paymentInformation: PaymentInformation ;
-    //userAccount: UserAccount ;
-    //employee : Employee;
-
+  userAccount: UserAccount;
 }

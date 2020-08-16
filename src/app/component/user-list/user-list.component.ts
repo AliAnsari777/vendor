@@ -14,28 +14,28 @@
 
 // }
 
-import { Component, OnInit } from '@angular/core';
-import { User } from '../../user';
-import { UserService } from '../../service/user-service.service'
-import { Router, ActivatedRoute } from '@angular/router';
- 
+import { Component, OnInit } from "@angular/core";
+import { User } from "../../user";
+import { UserService } from "../../service/user-service.service";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Vendor } from "src/app/vendor";
+
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  selector: "app-user-list",
+  templateUrl: "./user-list.component.html",
+  styleUrls: ["./user-list.component.css"],
 })
-
 export class UserListComponent implements OnInit {
- 
-  users: User;
- 
-  constructor(private route: ActivatedRoute, 
-    private router: Router, 
-    private userService: UserService) {
+  vendor: Vendor;
 
-      this.users = new User();
-}
- 
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private userService: UserService
+  ) {
+    this.vendor = new Vendor();
+  }
+
   ngOnInit() {
     // this.userService.findAll().subscribe(data => {
     //   this.users = data;
@@ -43,14 +43,17 @@ export class UserListComponent implements OnInit {
   }
 
   onReject() {
-    this.userService.save(this.users).subscribe(result => this.gotoUserList());
+    this.userService.remove(this.vendor);
+    this.gotoUserList();
   }
 
   onApprove() {
-    this.userService.save(this.users).subscribe(result => this.gotoUserList());
+    this.userService
+      .save(this.vendor)
+      .subscribe((result) => this.gotoUserList());
   }
-  
+
   gotoUserList() {
-    this.router.navigate(['/validation']);
+    this.router.navigate(["/validation"]);
   }
 }
